@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdbool.h>
 
 void swap(int* a, int* b) {
 	int t = *a;
