@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+#define NEIN 0
+#define JA 1
+
 void swap(int* a, int* b) {
 	int t = *a;
 	*a = *b;
@@ -58,6 +61,10 @@ static void printf_array(int* arr, int len) {
 	printf("\r\n");
 }
 
+#define ZEIGER_VERSTANDEN JA
+#define ARRAY_VERSTANDEN  JA
+
+
 int main() {
 	int x = 7;
 	// int* - Typ, Zeiger auf int. Hier ist '*' ein Typmodifikator. '*' macht aus einem Typ
@@ -74,11 +81,15 @@ int main() {
 	*p_x = 77;
 	printf("geänderte x durch die Addresse = %i\r\n", *p_x);
 
+	// TODO: erstell eine eigene Variable. printf ihre Addresse. Weis ihr einen neuen Wert durch die Addresse zu.
+	/// 
+
 	// Zeigerarithmetik
 	printf("sizeof(int) = %llu\r\n", sizeof(int));
 	printf("die Addresse von x = 0x%p, x + 1 = 0x%p\r\n", p_x, p_x + 1);
 	printf("die Addresse von x = 0x%p, x - 1 = 0x%p\r\n", p_x, p_x - 1);
 
+#if ZEIGER_VERSTANDEN
 	int m[10] = { 0, 9, 2, 3, 9, 5, 6, 7, 8, 9 };
 	int* p = &m[0]; // Addresse des ersten Elements
 	int* q = &m[9]; // Addresse des letzten Elements
@@ -101,14 +112,19 @@ int main() {
 	replace_all(m, 10, 9);
 	printf_array(m, 10);
 
+#if ARRAY_VERSTANDEN
 	// Zeiger auf Funktion
 	// return_typ (*name)(arg1_typ, ...)
 	int (*fn_ptr)(int);
-	fn_ptr = plusTwo;
+	// Function is simply some instructions for the processor. They are also stored in memory
+	fn_ptr = &plusTwo; // fn_ptr = plusTwo; & ist optional
 	printf("Addresse von plusTwo = 0x%p\r\n", fn_ptr);
+	printf("%i\r\n", (*fn_ptr)(3)); // printf("%i\r\n", fn_ptr(3)); dereferenz optional
 
 	map_inplace(m, 10, fn_ptr);
 	printf_array(m, 10);
+#endif
+#endif
 
 	return 0;
 }
