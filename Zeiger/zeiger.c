@@ -61,8 +61,8 @@ static void printf_array(int* arr, int len) {
 	printf("\r\n");
 }
 
-#define ZEIGER_VERSTANDEN JA
-#define ARRAY_VERSTANDEN  JA
+#define ZEIGER_VERSTANDEN NEIN
+#define ARRAY_VERSTANDEN  NEIN
 
 
 int main() {
