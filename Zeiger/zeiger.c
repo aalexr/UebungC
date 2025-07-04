@@ -27,7 +27,7 @@ int replace_and_get_index(int* arr, int length, int value, int* index) {
 */
 int replace_all(int* arr, int length, int value) {
 	int offset = 0;
-	while (false) {
+	while (0) {
 		;
 	}
 
