@@ -34,6 +34,11 @@ int replace_all(int* arr, int length, int value) {
 	return -1;
 }
 
+/*
+* TODO
+* Diese Funktion nimmt ein Array, seine Länge, einen Zeiger auf Funktion.
+* Sie muss mit der Funktion die neue Werte zuweisen.
+*/
 void map_inplace(int* arr, int length, int (*func)(int)) {
 	;
 }
